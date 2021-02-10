@@ -1,3 +1,5 @@
+import routes from "../routes";
+
 export const getHome = (req, res) => {
   res.render("home");
 };
@@ -7,11 +9,11 @@ export const getUpload = (req, res) => {
 };
 
 export const postUpload = (req, res) => {
-  res.send("Hi");
+  res.redirect(routes.home);
 };
 
 export const getContentDetail = (req, res) => {
-  res.send("Hi");
+  res.render("contentDetail");
 };
 
 export const getEditContent = (req, res) => {
@@ -19,9 +21,9 @@ export const getEditContent = (req, res) => {
 };
 
 export const postEditContent = (req, res) => {
-  res.send("Hi");
+  res.redirect(routes.contentDetail());
 };
 
 export const deleteContent = (req, res) => {
-  res.send("Hi");
+  res.redirect(routes.home);
 };

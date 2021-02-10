@@ -11,11 +11,11 @@ export const getJoin = (req, res) => {
 };
 
 export const postJoin = (req, res) => {
-  res.send("Hello!");
+  res.redirect(routes.home);
 };
 
 export const logout = (req, res) => {
-  res.send("Hello!");
+  res.redirect(routes.home);
 };
 
 export const getProfile = (req, res) => {
@@ -27,9 +27,9 @@ export const getEditProfile = (req, res) => {
 };
 
 export const postEditProfile = (req, res) => {
-  res.send("Hello!");
+  res.redirect(routes.profile());
 };
 
 export const deleteProfile = (req, res) => {
-  res.send("Hello!");
+  res.redirect(routes.home);
 };
