@@ -1,5 +1,5 @@
 export const getHome = (req, res) => {
-  res.send("Hi");
+  res.render("home");
 };
 
 export const getUpload = (req, res) => {

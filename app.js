@@ -22,6 +22,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(morgan("dev"));
 
+app.set("view engine", "pug");
+
 app.use(routes.home, globalRouter);
 app.use(routes.users, userRouter);
 app.use(routes.content, contentRouter);
