@@ -20,14 +20,50 @@ const routes = {
   join: JOIN,
   logout: LOGOUT,
   users: USERS,
-  profile: PROFILE,
-  editProfile: EDIT_PROFILE,
-  deleteProfile: DELETE_PROFILE,
+  profile: (id) => {
+    if (id) {
+      return `/${id}`;
+    } else {
+      return PROFILE;
+    }
+  },
+  editProfile: (id) => {
+    if (id) {
+      return `/${id}/edit`;
+    } else {
+      return EDIT_PROFILE;
+    }
+  },
+  deleteProfile: (id) => {
+    if (id) {
+      return `/${id}/delete`;
+    } else {
+      return DELETE_PROFILE;
+    }
+  },
   content: CONTENT,
   upload: UPLOAD,
-  contentDetail: CONTENT_DETAIL,
-  editContent: EDIT_CONTENT,
-  deleteContent: DELETE_CONTENT,
+  contentDetail: (id) => {
+    if (id) {
+      return `/${id}`;
+    } else {
+      return CONTENT_DETAIL;
+    }
+  },
+  editContent: (id) => {
+    if (id) {
+      return `/${id}/edit`;
+    } else {
+      return EDIT_CONTENT;
+    }
+  },
+  deleteContent: (id) => {
+    if (id) {
+      return `/${id}/delete`;
+    } else {
+      return DELETE_CONTENT;
+    }
+  },
 };
 
 export default routes;

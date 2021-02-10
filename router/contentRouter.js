@@ -15,11 +15,11 @@ const contentRouter = express.Router();
 contentRouter.get(routes.upload, getUpload);
 contentRouter.post(routes.upload, postUpload);
 
-contentRouter.get(routes.contentDetail, getContentDetail);
+contentRouter.get(routes.contentDetail(), getContentDetail);
 
-contentRouter.get(routes.editContent, getEditContent);
-contentRouter.post(routes.editContent, postEditContent);
+contentRouter.get(routes.editContent(), getEditContent);
+contentRouter.post(routes.editContent(), postEditContent);
 
-contentRouter.post(routes.deleteContent, deleteContent);
+contentRouter.post(routes.deleteContent(), deleteContent);
 
 export default contentRouter;
