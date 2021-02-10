@@ -3,7 +3,7 @@ export const getHome = (req, res) => {
 };
 
 export const getUpload = (req, res) => {
-  res.send("Hi");
+  res.render("upload", { pageTitle: "게시물 만들기" });
 };
 
 export const postUpload = (req, res) => {
@@ -15,7 +15,7 @@ export const getContentDetail = (req, res) => {
 };
 
 export const getEditContent = (req, res) => {
-  res.send("Hi");
+  res.render("editContent", { pageTitle: "게시물 수정" });
 };
 
 export const postEditContent = (req, res) => {

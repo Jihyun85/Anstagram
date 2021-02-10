@@ -1,5 +1,5 @@
 export const getLogin = (req, res) => {
-  res.send("Hello!");
+  res.render("login", { pageTitle: "로그인" });
 };
 
 export const postLogin = (req, res) => {
@@ -7,7 +7,7 @@ export const postLogin = (req, res) => {
 };
 
 export const getJoin = (req, res) => {
-  res.send("Hello!");
+  res.render("join", { pageTitle: "회원가입" });
 };
 
 export const postJoin = (req, res) => {
@@ -19,11 +19,11 @@ export const logout = (req, res) => {
 };
 
 export const getProfile = (req, res) => {
-  res.send("Hello!");
+  res.render("profile");
 };
 
 export const getEditProfile = (req, res) => {
-  res.send("Hello!");
+  res.render("editProfile", { pageTitle: "프로필 수정" });
 };
 
 export const postEditProfile = (req, res) => {

@@ -1,3 +1,19 @@
 extends ./templates/main.pug
 
 block content
+  .form-container
+    h2 #{pageTitle}
+    form(action=routes.join, method="post")
+      input(type="email", placeholder="이메일 계정", required=true)
+      input(type="text", placeholder="사용자 이름", required=true)
+      input(type="text", placeholder="이름", required=true)
+      input(type="password", placeholder="비밀번호", required=true)
+      input(type="password", placeholder="비밀번호 확인", required=true)
+      input(type="submit", value="회원가입")
+    .social-login.social-login--google
+      span 구글로 시작하기
+    .social-login.social-login--kakao
+      span 카카오로 시작하기
+    .info
+      p 이미 가입하셨나요?
+      a(href=routes.login) 로그인하기

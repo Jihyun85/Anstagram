@@ -1,6 +1,6 @@
 const HOME = "/";
 const LOGIN = "/login";
-const JOIN = "/login";
+const JOIN = "/join";
 const LOGOUT = "/logout";
 
 const USERS = "/users";
