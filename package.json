@@ -1,7 +1,7 @@
 {
   "name": "anstagram",
   "version": "1.0.0",
-  "description": "NodeJS를 이용한 서버 구축 복습을 위한 인스타그램 클론",
+  "description": "NodeJS 서버 구축 복습을 위한 인스타그램 클론",
   "main": "index.js",
   "scripts": {
     "dev:server": "nodemon --legacy-watch --exec babel-node init.js --delay 2",
