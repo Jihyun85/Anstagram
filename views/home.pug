@@ -1,3 +1,14 @@
 extends ./templates/main.pug
+include ./mixins/contentCard
 
 block content
+  .content-cards 
+    each item in contents
+      +contentCard({
+        creator: {
+          image: item.creator.image,
+          displayName: item.creator.displayName,
+        },
+        imageFile: item.imageFile,
+        description: item.description,
+      })

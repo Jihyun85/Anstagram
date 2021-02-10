@@ -8,9 +8,14 @@
       a(href=routes.home)
         li 
           i.fas.fa-home
-      a(href=`/content${routes.upload}`)
-        li
-          i.far.fa-plus-square
-      a(href=routes.login)
-        li
-          i.far.fa-user
+      if (!user.authenticate)
+        a(href=routes.login)
+          li
+            i.far.fa-user
+      else
+        a(href=`/content${routes.upload}`)
+          li
+            i.far.fa-plus-square
+        a(href=`/users${routes.profile(user.id)}`)
+          li 
+            i.fas.fa-user

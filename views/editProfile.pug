@@ -3,7 +3,7 @@ extends ./templates/main.pug
 block content
   .form-container
     h2 #{pageTitle}
-    form(action=routes.editProfile, method="post")
+    form(action=`/users/${user.id}/edit`, method="post")
       label(for="profileImage") 프로필 사진 변경
       input(type="file", id="profileImage", required=true)
       input(type="text", placeholder="사용자 이름", required=true)

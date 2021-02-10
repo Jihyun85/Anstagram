@@ -1,3 +1,5 @@
+import routes from "../routes";
+
 export const getLogin = (req, res) => {
   res.render("login", { pageTitle: "로그인" });
 };
@@ -27,7 +29,7 @@ export const getEditProfile = (req, res) => {
 };
 
 export const postEditProfile = (req, res) => {
-  res.redirect(routes.profile());
+  res.redirect(routes.profile(user.id));
 };
 
 export const deleteProfile = (req, res) => {

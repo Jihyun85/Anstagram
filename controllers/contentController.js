@@ -1,7 +1,8 @@
 import routes from "../routes";
+import contents from "../db";
 
 export const getHome = (req, res) => {
-  res.render("home");
+  res.render("home", { pageTitle: "Home", contents });
 };
 
 export const getUpload = (req, res) => {

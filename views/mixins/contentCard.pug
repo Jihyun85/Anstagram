@@ -1,0 +1,24 @@
+mixin contentCard(content={})
+  .content-card 
+    .content-card__header 
+      div
+        a(href="#")
+          img.content-card__creator-img(src=content.creator.image)
+        a(href="#")
+          h5.content-card__creator-name=content.creator.displayName 
+      div
+        i.fas.fa-ellipsis-h
+    .content-card__img-box
+      img.content-card__content-img(src=content.imageFile) 
+    .content-card__info 
+      .content-card__icons
+        i.far.fa-heart 
+        i.far.fa-comment-alt
+      .content-card__description 
+        a(href="#")
+          h6=content.creator.name 
+        p=content.description
+    .content-card__comment 
+      form(action="#", method="post")
+        input(type="text", placeholder="댓글 달기...")
+        input(type="submit", value="게시")

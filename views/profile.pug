@@ -1,3 +1,23 @@
 extends ./templates/main.pug
 
 block content
+  .profile-card 
+    .profile-card__column
+      img.profile-card__image(src=user.profileImage)
+    .profile-card__column 
+      .profile-card__title
+        h3=user.displayName
+        a(href=`/users${routes.editProfile(user.id)}`) 프로필 편집
+      .profile-card__values
+        .profile-card__value.profile-card__value-content
+          h6 게시물
+          span=user.content.length
+        .profile-card__value.profile-card__value-follow 
+          h6 팔로우
+          span=user.follow.length
+        .profile-card__value.profile-card__value-follower
+          h6 팔로워
+          span=user.follower.length
+      .profile-card__description 
+        h5.profile-card__name=user.name 
+        p=user.description
