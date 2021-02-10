@@ -4,12 +4,12 @@
     input(type="text", placeholder="검색")
   nav 
     ul
-      a(href="/")
+      a(href=routes.home)
         li 
           i.fas.fa-home
-      a(href="/content/upload")
+      a(href=`/content${routes.upload}`)
         li
           i.far.fa-plus-square
-      a(href="login")
+      a(href=routes.login)
         li
           i.far.fa-user
