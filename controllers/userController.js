@@ -29,7 +29,7 @@ export const getEditProfile = (req, res) => {
 };
 
 export const postEditProfile = (req, res) => {
-  res.redirect(routes.profile(user.id));
+  res.redirect(routes.home);
 };
 
 export const deleteProfile = (req, res) => {
