@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
+import "./model/Content";
+import "./model/Comment";
+import "./model/User";
+
 dotenv.config();
 
 mongoose.Promise = global.Promise;
