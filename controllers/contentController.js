@@ -20,10 +20,12 @@ export const postUpload = async (req, res) => {
   const {
     body: { description },
     file: { path },
+    //유저 정보도 받아와야 함
   } = req;
   const newContent = await Content.create({
     fileUrl: path,
     description,
+    //user정보 추가해야함
   });
   res.redirect(routes.contentDetail(newContent.id));
 };
