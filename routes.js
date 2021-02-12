@@ -22,21 +22,21 @@ const routes = {
   users: USERS,
   profile: (id) => {
     if (id) {
-      return `/${id}`;
+      return `/users/${id}`;
     } else {
       return PROFILE;
     }
   },
   editProfile: (id) => {
     if (id) {
-      return `/${id}/edit`;
+      return `/users/${id}/edit`;
     } else {
       return EDIT_PROFILE;
     }
   },
   deleteProfile: (id) => {
     if (id) {
-      return `/${id}/delete`;
+      return `/users/${id}/delete`;
     } else {
       return DELETE_PROFILE;
     }
@@ -45,21 +45,21 @@ const routes = {
   upload: UPLOAD,
   contentDetail: (id) => {
     if (id) {
-      return `/${id}`;
+      return `/content/${id}`;
     } else {
       return CONTENT_DETAIL;
     }
   },
   editContent: (id) => {
     if (id) {
-      return `/${id}/edit`;
+      return `/content/${id}/edit`;
     } else {
       return EDIT_CONTENT;
     }
   },
   deleteContent: (id) => {
     if (id) {
-      return `/${id}/delete`;
+      return `/content/${id}/delete`;
     } else {
       return DELETE_CONTENT;
     }
