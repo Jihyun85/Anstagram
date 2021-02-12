@@ -3,9 +3,8 @@ extends ./templates/main.pug
 block content
   .form-container
     h2 #{pageTitle}
-    form(action=`/content/upload`, method="post")
+    form(action=`/content/upload`, method="post", enctype="multipart/form-data")
       label(for="imageFile") 이미지 선택
-      input(type="file", id="imageFile", required=true)
-      textarea
+      input(type="file", id="imageFile", name="imageFile", required=true)
+      textarea(name="description")
       input(type="submit", value="업로드")
-

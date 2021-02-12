@@ -25,6 +25,8 @@ app.use(morgan("dev"));
 
 app.set("view engine", "pug");
 
+app.use("/uploads", express.static("uploads"));
+
 app.use(localMiddleware);
 
 app.use(routes.home, globalRouter);

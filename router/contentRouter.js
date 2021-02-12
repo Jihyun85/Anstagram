@@ -7,13 +7,14 @@ import {
   postEditContent,
   postUpload,
 } from "../controllers/contentController";
+import { uploadContent } from "../middlewares";
 
 import routes from "../routes";
 
 const contentRouter = express.Router();
 
 contentRouter.get(routes.upload, getUpload);
-contentRouter.post(routes.upload, postUpload);
+contentRouter.post(routes.upload, uploadContent, postUpload);
 
 contentRouter.get(routes.contentDetail(), getContentDetail);
 
