@@ -8,7 +8,7 @@
       a(href=routes.home)
         li 
           i.fas.fa-home
-      if (!user.authenticate)
+      if (!user)
         a(href=routes.login)
           li
             i.far.fa-user
@@ -19,3 +19,8 @@
         a(href=`${routes.profile(user.id)}`)
           li 
             i.fas.fa-user
+    .menu
+      ul 
+        if (user)
+          a(href=routes.logout)
+            li Logout
