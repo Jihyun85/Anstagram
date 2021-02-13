@@ -1,5 +1,4 @@
 import routes from "../routes";
-import contents from "../db";
 import Content from "../model/Content";
 
 export const getHome = async (req, res) => {

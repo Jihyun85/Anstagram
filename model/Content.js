@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 import userRouter from "../router/userRouter";
 
-const ContentSchema = mongoose.Schema({
+const ContentSchema = new mongoose.Schema({
   fileUrl: {
     type: String,
     required: true,
