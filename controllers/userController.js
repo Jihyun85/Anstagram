@@ -1,13 +1,15 @@
 import routes from "../routes";
+import passport from "passport";
 import User from "../model/User";
 
 export const getLogin = (req, res) => {
   res.render("login", { pageTitle: "로그인" });
 };
 
-export const postLogin = (req, res) => {
-  res.send("Hello!");
-};
+export const postLogin = passport.authenticate("local", {
+  successRedirect: routes.home,
+  failureRedirect: routes.login,
+});
 
 export const getJoin = (req, res) => {
   res.render("join", { pageTitle: "회원가입" });
