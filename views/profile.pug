@@ -7,7 +7,7 @@ block content
     .profile-card__column 
       .profile-card__title
         h3=user.displayName
-        a(href=`/users${routes.editProfile(user.id)}`) 프로필 편집
+        a(href=routes.editProfile(user.id)) 프로필 편집
       .profile-card__values
         .profile-card__value.profile-card__value-content
           h6 게시물

@@ -47,15 +47,40 @@ export const logout = (req, res) => {
 };
 
 export const getProfile = (req, res) => {
-  res.render("profile");
+  res.render("profile", { pageTitle: "Edit Profile" });
 };
 
-export const getEditProfile = (req, res) => {
-  res.render("editProfile", { pageTitle: "프로필 수정" });
+export const getEditProfile = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    const user = await User.findById(id);
+    res.render("editProfile", { pageTitle: "Edit Profile", user });
+  } catch (error) {
+    console.log(error);
+    res.redirect(routes.home);
+  }
 };
 
-export const postEditProfile = (req, res) => {
-  res.redirect(routes.home);
+export const postEditProfile = async (req, res) => {
+  const {
+    params: { _id: id },
+    body: { displayName, description },
+    file,
+  } = req;
+  try {
+    await User.findOneAndUpdate(id, {
+      displayName,
+      description,
+      profileUrl: file ? file.path : req.user.profileUrl,
+    });
+    //나중에 router를 따로 만들어서 내 프로필만 분리예정
+    res.redirect(`/users/${routes.profile(id)}`);
+  } catch (error) {
+    console.log(error);
+    res.redirect(routes.home);
+  }
 };
 
 export const deleteProfile = (req, res) => {
