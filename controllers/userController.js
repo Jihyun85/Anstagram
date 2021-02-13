@@ -83,6 +83,14 @@ export const postEditProfile = async (req, res) => {
   }
 };
 
-export const deleteProfile = (req, res) => {
+export const deleteId = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    await User.findByIdAndRemove(id);
+  } catch (error) {
+    console.log(error);
+  }
   res.redirect(routes.home);
 };

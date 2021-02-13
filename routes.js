@@ -34,7 +34,7 @@ const routes = {
       return EDIT_PROFILE;
     }
   },
-  deleteProfile: (id) => {
+  deleteId: (id) => {
     if (id) {
       return `/users/${id}/delete`;
     } else {
