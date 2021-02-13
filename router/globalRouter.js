@@ -9,6 +9,7 @@ import {
 } from "../controllers/userController";
 
 import routes from "../routes";
+import { uploadProfileImg } from "../middlewares";
 
 const globalRouter = express.Router();
 
@@ -18,7 +19,7 @@ globalRouter.get(routes.login, getLogin);
 globalRouter.post(routes.login, postLogin);
 
 globalRouter.get(routes.join, getJoin);
-globalRouter.post(routes.join, postJoin);
+globalRouter.post(routes.join, uploadProfileImg, postJoin);
 
 globalRouter.get(routes.logout, logout);
 

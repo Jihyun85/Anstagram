@@ -17,7 +17,8 @@ export const getJoin = (req, res) => {
 
 export const postJoin = async (req, res) => {
   const {
-    body: { email, nickname, name, password1, password2 },
+    body: { email, displayName, name, password1, password2 },
+    file: { path },
   } = req;
   if (password1 !== password2) {
     //수정 필요(join 페이지를 렌더하지 않고 안내 문구가 나오도록)
@@ -27,8 +28,9 @@ export const postJoin = async (req, res) => {
     try {
       const user = await new User({
         email,
-        nickname,
+        displayName,
         name,
+        profileUrl: path,
       });
       await User.register(user, password1);
       res.redirect(routes.home);

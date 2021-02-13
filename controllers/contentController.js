@@ -3,7 +3,7 @@ import Content from "../model/Content";
 
 export const getHome = async (req, res) => {
   try {
-    const contents = await Content.find({});
+    const contents = await Content.find({}).populate("creator");
     res.render("home", { pageTitle: "Home", contents });
   } catch (err) {
     console.log(err);
@@ -19,18 +19,23 @@ export const postUpload = async (req, res) => {
   const {
     body: { description },
     file: { path },
+    user: { _id: id },
     //유저 정보도 받아와야 함
   } = req;
   const newContent = await Content.create({
     fileUrl: path,
     description,
-    //user정보 추가해야함
+    creator: id,
   });
   res.redirect(routes.contentDetail(newContent.id));
 };
 
-export const getContentDetail = (req, res) => {
-  res.render("contentDetail");
+export const getContentDetail = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  const content = await Content.findById(id).populate("content");
+  res.render("contentDetail", { pageTitle: "Content Detail", content });
 };
 
 export const getEditContent = (req, res) => {
