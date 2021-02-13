@@ -3,7 +3,7 @@ extends ./templates/main.pug
 block content
   .profile-card 
     .profile-card__column
-      img.profile-card__image(src=user.profileImage)
+      img.profile-card__image(src=`/${user.profileUrl}`)
     .profile-card__column 
       .profile-card__title
         h3=user.displayName

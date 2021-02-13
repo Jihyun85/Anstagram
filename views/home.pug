@@ -6,9 +6,9 @@ block content
     each item in contents
       +contentCard({
         creator: {
-          image: item.creator.image,
+          profileUrl: item.creator.profileUrl,
           displayName: item.creator.displayName,
         },
-        imageFile: item.imageFile,
+        fileUrl: item.fileUrl,
         description: item.description,
       })

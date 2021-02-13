@@ -3,13 +3,13 @@ mixin contentCard(content={})
     .content-card__header 
       div
         a(href="#")
-          img.content-card__creator-img(src=content.creator.image)
+          img.content-card__creator-img(src=`/${content.creator.profileUrl}`)
         a(href="#")
-          h5.content-card__creator-name=content.creator.displayName 
+          h5.content-card__creator-name=content.creator.displayName
       div
         i.fas.fa-ellipsis-h
     .content-card__img-box
-      img.content-card__content-img(src=content.imageFile) 
+      img.content-card__content-img(src=`/${content.fileUrl}`) 
     .content-card__info 
       .content-card__icons
         i.far.fa-heart 

@@ -4,8 +4,8 @@ block content
   .form-container
     h2 #{pageTitle}
     form(action=`/users/${user.id}/edit`, method="post")
-      label(for="profileImage") 프로필 사진 변경
-      input(type="file", id="profileImage", required=true)
+      label(for="profileUrl") 프로필 사진 변경
+      input(type="file", name="profileUrl", id="profileUrl", required=true)
       input(type="text", placeholder="사용자 이름", required=true)
       textarea(placeholder="소개글")
       input(type="submit", value="업로드")
