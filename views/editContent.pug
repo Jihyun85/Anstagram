@@ -4,6 +4,6 @@ block content
   .form-container
     h2 #{pageTitle}
     p 이미지는 수정이 불가능합니다.
-    form(action=routes.editContent, method="post")
-      textarea
+    form(action=routes.editContent(content.id), method="post")
+      textarea(name="description")=content.description
       input(type="submit", value="업로드")

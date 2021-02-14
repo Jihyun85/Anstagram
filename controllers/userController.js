@@ -33,7 +33,7 @@ export const postJoin = async (req, res) => {
         profileUrl: path,
       });
       await User.register(user, password1);
-      res.redirect(routes.home);
+      res.redirect(routes.login);
     } catch (error) {
       console.log(error);
       res.redirect(routes.join);

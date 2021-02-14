@@ -38,12 +38,31 @@ export const getContentDetail = async (req, res) => {
   res.render("contentDetail", { pageTitle: "Content Detail", content });
 };
 
-export const getEditContent = (req, res) => {
-  res.render("editContent", { pageTitle: "게시물 수정" });
+export const getEditContent = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    const content = await Content.findById(id);
+    res.render("editContent", { pageTitle: "게시물 수정", content });
+  } catch (error) {
+    res.redirect(routes.profile(req.user.id));
+  }
 };
 
-export const postEditContent = (req, res) => {
-  res.redirect(routes.contentDetail());
+export const postEditContent = async (req, res) => {
+  const {
+    body: { description },
+    params: { id },
+  } = req;
+  try {
+    await Content.findByIdAndUpdate(id, {
+      description,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+  res.redirect(routes.contentDetail(id));
 };
 
 export const deleteContent = (req, res) => {

@@ -3,3 +3,8 @@ extends ./templates/main.pug
 block content
   .content-detail 
     img(src=`/${content.fileUrl}`)
+    p=content.description
+    .menu 
+      ul 
+          a(href=routes.editContent(content.id))
+            li 게시물 수정
