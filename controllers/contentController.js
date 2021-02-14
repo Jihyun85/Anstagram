@@ -65,6 +65,14 @@ export const postEditContent = async (req, res) => {
   res.redirect(routes.contentDetail(id));
 };
 
-export const deleteContent = (req, res) => {
+export const deleteContent = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    await Content.findByIdAndDelete(id);
+  } catch (error) {
+    console.log(error);
+  }
   res.redirect(routes.home);
 };

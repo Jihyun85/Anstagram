@@ -21,6 +21,6 @@ contentRouter.get(routes.contentDetail(), getContentDetail);
 contentRouter.get(routes.editContent(), getEditContent);
 contentRouter.post(routes.editContent(), postEditContent);
 
-contentRouter.post(routes.deleteContent(), deleteContent);
+contentRouter.get(routes.deleteContent(), deleteContent);
 
 export default contentRouter;
