@@ -1,5 +1,6 @@
 import express from "express";
 
+import path from "path";
 import helmet from "helmet";
 import passport from "passport";
 import cookieParser from "cookie-parser";
@@ -49,8 +50,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "views"));
 
 app.use("/uploads", express.static("uploads"));
+app.use("/static", express.static(path.join(__dirname, "static")));
 
 app.use(localMiddleware);
 
