@@ -1,26 +1,26 @@
 .header__container
-  a(href=routes.home)
-    h1 Anstagram 
-  form
+  a(href=routes.home).header__column
+    h1.service-title Anstagram 
+  form.header__column
     input(type="text", placeholder="검색")
-  nav 
+  nav.header__column
     ul
-      a(href=routes.home)
-        li 
+      li 
+        a(href=routes.home)
           i.fas.fa-home
       if (!user)
-        a(href=routes.login)
-          li
+        li
+          a(href=routes.login)
             i.far.fa-user
       else
-        a(href=`/content${routes.upload}`)
-          li
+        li
+          a(href=`/content${routes.upload}`)
             i.far.fa-plus-square
-        a(href=`${routes.profile(user.id)}`)
-          li 
+        li 
+          a(href=`${routes.profile(user.id)}`)
             i.fas.fa-user
     .menu
       ul 
         if (user)
-          a(href=routes.logout)
-            li Logout
+          li Logout
+            a(href=routes.logout)
