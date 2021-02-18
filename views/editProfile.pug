@@ -10,6 +10,6 @@ block content
         input(type="text", name="displayName", placeholder="사용자 이름", required=true, value=user.displayName)
         textarea(placeholder="소개글", name="description")=user.description
         input(type="submit", value="업로드")
-      .info
+      .form__info
         p 회원 탈퇴를 원하시나요?
         a(href=routes.deleteId(user.id)) 탈퇴하기
