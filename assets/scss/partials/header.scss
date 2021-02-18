@@ -1,4 +1,7 @@
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,11 +22,13 @@ header {
 .header__column {
   display: flex;
   width: 33.3%;
+  min-width: 200px;
   color: black;
   font-style: italic;
 }
 
 a.header__column {
+  margin-left: 20px;
   text-decoration: none;
 }
 
@@ -45,6 +50,7 @@ form.header__column {
 }
 
 nav.header__column {
+  margin-right: 20px;
   justify-content: flex-end;
   ul {
     display: flex;
@@ -52,10 +58,17 @@ nav.header__column {
     align-items: center;
     li {
       font-size: 24px;
-      margin-left: 20px;
+      margin-left: 30px;
       a {
         color: black;
       }
     }
+  }
+}
+
+.header__menu {
+  display: none;
+  a {
+    text-decoration: none;
   }
 }

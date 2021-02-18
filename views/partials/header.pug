@@ -19,8 +19,8 @@
         li 
           a(href=`${routes.profile(user.id)}`)
             i.fas.fa-user
-    .menu
+    .header__menu
       ul 
         if (user)
-          li Logout
-            a(href=routes.logout)
+          li 
+            a(href=routes.logout) Logout
