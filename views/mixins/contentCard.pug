@@ -1,7 +1,7 @@
 mixin contentCard(content={})
   .content-card 
     .content-card__header 
-      div
+      .content-card__creator
         a(href="#")
           img.content-card__creator-img(src=`/${content.creator.profileUrl}`)
         a(href="#")
@@ -12,11 +12,13 @@ mixin contentCard(content={})
       img.content-card__content-img(src=`/${content.fileUrl}`) 
     .content-card__info 
       .content-card__icons
-        i.far.fa-heart 
-        i.far.fa-comment-alt
+        a(href="#")
+          i.far.fa-heart 
+        a(href="#")
+          i.far.fa-comment-alt
       .content-card__description 
         a(href="#")
-          h6=content.creator.name 
+          h6=content.creator.displayName 
         p=content.description
     .content-card__comment 
       form(action="#", method="post")

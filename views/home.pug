@@ -2,13 +2,14 @@ extends ./templates/main.pug
 include ./mixins/contentCard
 
 block content
-  .content-cards 
-    each item in contents
-      +contentCard({
-        creator: {
-          profileUrl: item.creator.profileUrl,
-          displayName: item.creator.displayName,
-        },
-        fileUrl: item.fileUrl,
-        description: item.description,
-      })
+  .home
+    .content-cards 
+      each item in contents
+        +contentCard({
+          creator: {
+            profileUrl: item.creator.profileUrl,
+            displayName: item.creator.displayName,
+          },
+          fileUrl: item.fileUrl,
+          description: item.description,
+        })
