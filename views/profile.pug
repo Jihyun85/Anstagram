@@ -1,4 +1,6 @@
 extends ./templates/main.pug
+include ./mixins/gridContent.pug
+
 
 block content
   .profile
@@ -23,3 +25,7 @@ block content
           h5.profile-card__name=user.name 
           p 안녕하세요!! Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati rem quis enim quae pariatur aliquam ducimus soluta eius ratione temporibus. Hic maxime assumenda dicta ipsa nihil non totam enim amet.
     .profile-grid
+      each item in user.content
+        +gridContent({
+          fileUrl: item.fileUrl
+        })

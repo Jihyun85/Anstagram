@@ -1,5 +1,6 @@
 .profile {
   display: flex;
+  flex-direction: column;
   width: 1000px;
   padding-top: 50px;
 }
@@ -15,7 +16,7 @@
 .profile-card__column {
   display: flex;
   flex-direction: column;
-  margin-right: 30px;
+  margin-right: 40px;
   img {
     width: 150px;
     height: 150px;
@@ -75,5 +76,19 @@
     max-width: 450px;
     font-size: 16px;
     line-height: 1.3;
+  }
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: calc((1000px - 80px) / 3);
+  gap: 40px;
+  width: 100%;
+  margin: 50px 0;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
