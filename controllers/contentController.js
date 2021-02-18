@@ -3,11 +3,11 @@ import Content from "../model/Content";
 
 export const getHome = async (req, res) => {
   try {
-    const contents = await Content.find({}).populate("creator");
-    res.render("home", { pageTitle: "Home", contents });
+    const content = await Content.find({}).populate("creator");
+    res.render("home", { pageTitle: "Home", content });
   } catch (err) {
     console.log(err);
-    res.render("home", { pageTitle: "Home", contents: [] });
+    res.render("home", { pageTitle: "Home", content: [] });
   }
 };
 

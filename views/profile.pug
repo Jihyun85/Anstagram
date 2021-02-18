@@ -27,5 +27,6 @@ block content
     .profile-grid
       each item in user.content
         +gridContent({
-          fileUrl: item.fileUrl
+          fileUrl: item.fileUrl,
+          id: item.id
         })

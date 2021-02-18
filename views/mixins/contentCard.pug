@@ -2,9 +2,9 @@ mixin contentCard(content={})
   .content-card 
     .content-card__header 
       .content-card__creator
-        a(href="#")
+        a(href=routes.profile(content.creator.id))
           img.content-card__creator-img(src=`/${content.creator.profileUrl}`)
-        a(href="#")
+        a(href=routes.profile(content.creator.id))
           h5.content-card__creator-name=content.creator.displayName
       div
         i.fas.fa-ellipsis-h
@@ -17,7 +17,7 @@ mixin contentCard(content={})
         a(href="#")
           i.far.fa-comment-alt
       .content-card__description 
-        a(href="#")
+        a(href=routes.profile(content.creator.id))
           h6=content.creator.displayName 
         p=content.description
     .content-card__comment 
