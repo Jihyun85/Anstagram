@@ -2,13 +2,14 @@ extends ./templates/main.pug
 
 block content
   .form-container
-    h2 #{pageTitle}
-    form(action=routes.editProfile(user.id), method="post", enctype="multipart/form-data")
-      label(for="profileUrl") 프로필 사진 변경
-      input(type="file", name="profileUrl", id="profileUrl")
-      input(type="text", name="displayName", placeholder="사용자 이름", required=true, value=user.displayName)
-      textarea(placeholder="소개글", name="description")=user.description
-      input(type="submit", value="업로드")
-    .info
-      p 회원 탈퇴를 원하시나요?
-      a(href=routes.deleteId(user.id)) 탈퇴하기
+    .form-content
+      h2 #{pageTitle}
+      form(action=routes.editProfile(user.id), method="post", enctype="multipart/form-data")
+        label(for="profileUrl") 프로필 사진 변경
+        input(type="file", name="profileUrl", id="profileUrl")
+        input(type="text", name="displayName", placeholder="사용자 이름", required=true, value=user.displayName)
+        textarea(placeholder="소개글", name="description")=user.description
+        input(type="submit", value="업로드")
+      .info
+        p 회원 탈퇴를 원하시나요?
+        a(href=routes.deleteId(user.id)) 탈퇴하기

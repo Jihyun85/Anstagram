@@ -4,8 +4,11 @@ html {
 }
 
 body {
+  display: flex;
+  justify-content: center;
   width: 100%;
   height: calc(100% - 50px);
   margin-top: 50px;
-  font-family: "Roboto", "Nanum Gothic", sans-serif;
+  background-color: $bg-color;
+  font-family: "Nanum Gothic", sans-serif;
 }

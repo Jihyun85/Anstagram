@@ -12,7 +12,7 @@ export const getHome = async (req, res) => {
 };
 
 export const getUpload = (req, res) => {
-  res.render("upload", { pageTitle: "게시물 만들기" });
+  res.render("upload", { pageTitle: "이미지 업로드" });
 };
 
 export const postUpload = async (req, res) => {
