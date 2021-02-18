@@ -46,8 +46,12 @@ export const logout = (req, res) => {
   res.redirect(routes.home);
 };
 
-export const getProfile = (req, res) => {
-  res.render("profile", { pageTitle: "Edit Profile" });
+export const getProfile = async (req, res) => {
+  const {
+    user: { _id: id },
+  } = req;
+  const user = await User.findById(id).populate("content");
+  res.render("profile", { pageTitle: "Edit Profile", user });
 };
 
 export const getEditProfile = async (req, res) => {

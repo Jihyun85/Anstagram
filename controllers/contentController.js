@@ -27,7 +27,7 @@ export const postUpload = async (req, res) => {
     description,
     creator: id,
   });
-  req.user.content.push(newContent.id);
+  req.user.content.unshift(newContent.id);
   req.user.save();
   res.redirect(routes.contentDetail(newContent.id));
 };
