@@ -1,12 +1,46 @@
 extends ./templates/main.pug
 
 block content
-  .content-detail 
-    img(src=`/${content.fileUrl}`)
-    p=content.description
-    .menu 
-      ul 
-          a(href=routes.editContent(content.id))
-            li 게시물 수정
-          a(href=routes.deleteContent(content.id))
-            li 게시물 삭제
+  .content-detail
+    article.content-detail__container
+      .content-detail__pic
+        img(src=`/${content.fileUrl}`)
+      .content-detail__info
+        .content-detail__creator 
+          a(href="#")
+            img(src=`/${content.creator.profileUrl}`)
+          a(href="#")
+            h5=content.creator.displayName 
+          a(href="#") 팔로우
+        .content-detail__text 
+          .content-detail__description
+            div
+              a(href="#")
+                img(src=`/${content.creator.profileUrl}`)
+            div    
+              a(href="#")=content.creator.displayName
+              p=content.description
+        .content-detail__etc
+          div
+            a(href="#")
+              i.far.fa-heart 
+            a(href="#")
+              i.far.fa-comment-alt
+          div 
+            p.content-detail__like-person
+        .content-detail__comment
+          form(action="#", method="post")
+            input(type="text" name="comment" required=true)
+            input(type="submit")
+        
+          
+
+
+
+
+      .menu 
+        ul 
+            a(href=routes.editContent(content.id))
+              li 게시물 수정
+            a(href=routes.deleteContent(content.id))
+              li 게시물 삭제
