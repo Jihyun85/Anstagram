@@ -36,7 +36,7 @@ export const getContentDetail = async (req, res) => {
   const {
     params: { id },
   } = req;
-  const content = await Content.findById(id).populate("content");
+  const content = await Content.findById(id).populate("creator");
   res.render("contentDetail", { pageTitle: "Content Detail", content });
 };
 
