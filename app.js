@@ -15,6 +15,7 @@ import routes from "./routes";
 import globalRouter from "./router/globalRouter";
 import userRouter from "./router/userRouter";
 import contentRouter from "./router/contentRouter";
+import apiRouter from "./router/apiRouter";
 import { localMiddleware } from "./middlewares";
 
 dotenv.config();
@@ -60,5 +61,6 @@ app.use(localMiddleware);
 app.use(routes.home, globalRouter);
 app.use(routes.users, userRouter);
 app.use(routes.content, contentRouter);
+app.use(routes.api, apiRouter);
 
 export default app;

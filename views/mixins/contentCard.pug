@@ -12,7 +12,7 @@ mixin contentCard(content={})
       img.content-card__content-img(src=`/${content.fileUrl}`) 
     .content-card__info 
       .content-card__icons
-        a(href="#")
+        a(href=routes.heart(content.id))
           i.far.fa-heart 
         a(href="#")
           i.far.fa-comment-alt

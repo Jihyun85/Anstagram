@@ -15,6 +15,10 @@ const CONTENT_DETAIL = "/:id";
 const EDIT_CONTENT = "/:id/edit";
 const DELETE_CONTENT = "/:id/delete";
 
+// api
+const API = "/api";
+const HEART = "/:id/heart";
+
 const routes = {
   home: HOME,
   login: LOGIN,
@@ -64,6 +68,14 @@ const routes = {
       return `/content/${id}/delete`;
     } else {
       return DELETE_CONTENT;
+    }
+  },
+  api: API,
+  heart: (id) => {
+    if (id) {
+      return `/api/${id}/heart`;
+    } else {
+      return HEART;
     }
   },
 };
