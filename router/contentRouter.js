@@ -7,20 +7,20 @@ import {
   postEditContent,
   postUpload,
 } from "../controllers/contentController";
-import { uploadContent } from "../middlewares";
+import { onlyPrivate, uploadContent } from "../middlewares";
 
 import routes from "../routes";
 
 const contentRouter = express.Router();
 
-contentRouter.get(routes.upload, getUpload);
-contentRouter.post(routes.upload, uploadContent, postUpload);
+contentRouter.get(routes.upload, onlyPrivate, getUpload);
+contentRouter.post(routes.upload, onlyPrivate, uploadContent, postUpload);
 
 contentRouter.get(routes.contentDetail(), getContentDetail);
 
-contentRouter.get(routes.editContent(), getEditContent);
-contentRouter.post(routes.editContent(), postEditContent);
+contentRouter.get(routes.editContent(), onlyPrivate, getEditContent);
+contentRouter.post(routes.editContent(), onlyPrivate, postEditContent);
 
-contentRouter.get(routes.deleteContent(), deleteContent);
+contentRouter.get(routes.deleteContent(), onlyPrivate, deleteContent);
 
 export default contentRouter;

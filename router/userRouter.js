@@ -8,18 +8,18 @@ import {
   getProfile,
   postEditProfile,
 } from "../controllers/userController";
-import { uploadProfileImg } from "../middlewares";
+import { onlyPrivate, uploadProfileImg } from "../middlewares";
 
 import routes from "../routes";
 
 const userRouter = express.Router();
 
-userRouter.get(routes.me, getMe);
-userRouter.post(routes.me, uploadProfileImg, postMe);
+userRouter.get(routes.me, onlyPrivate, getMe);
+userRouter.post(routes.me, onlyPrivate, uploadProfileImg, postMe);
 
-userRouter.get(routes.editProfile(), getEditProfile);
+userRouter.get(routes.editProfile(), onlyPrivate, getEditProfile);
 
-userRouter.get(routes.deleteId(), deleteId);
+userRouter.get(routes.deleteId(), onlyPrivate, deleteId);
 
 userRouter.get(routes.profile(), getProfile);
 export default userRouter;
