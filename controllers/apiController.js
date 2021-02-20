@@ -10,12 +10,20 @@ export const countHeart = async (req, res) => {
   } = req;
   try {
     const user = await User.findById(userId);
-    user.likeContent.push(contentId);
-    user.save();
-    console.log(user.likeContent);
     const content = await Content.findById(contentId);
-    content.heartPerson.push(userId);
-    content.save();
+    const likeContentIndex = user.likeContent.indexOf(contentId);
+    const heartPersonIndex = content.heartPerson.indexOf(userId);
+    if (likeContentIndex === -1 && heartPersonIndex === -1) {
+      user.likeContent.push(contentId);
+      user.save();
+      content.heartPerson.push(userId);
+      content.save();
+    } else {
+      user.likeContent.splice(likeContentIndex, 1);
+      user.save();
+      content.heartPerson.splice(heartPersonIndex, 1);
+      content.save();
+    }
     res.status(200);
   } catch (err) {
     res.status(400);
