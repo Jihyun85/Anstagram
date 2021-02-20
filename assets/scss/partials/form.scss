@@ -8,10 +8,6 @@
   padding: 45px 100px;
   border: 1px solid $light-grey;
   border-radius: 20px;
-}
-
-.form-container {
-  display: flex;
   background-color: white;
   h2 {
     margin-bottom: 40px;
@@ -86,6 +82,10 @@
       border-color: $yellow;
       outline: none;
     }
+  }
+  p {
+    text-align: center;
+    margin-bottom: 10px;
   }
 }
 
