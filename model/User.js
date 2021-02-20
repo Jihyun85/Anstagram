@@ -36,6 +36,12 @@ const UserSchema = new mongoose.Schema({
       ref: "User",
     },
   ],
+  likeContent: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Content",
+    },
+  ],
 });
 
 UserSchema.plugin(passportLocalMongoose, { usernameField: "email" });
