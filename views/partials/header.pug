@@ -8,7 +8,7 @@
       li 
         a(href=routes.home)
           i.fas.fa-home
-      if (!user)
+      if (!loggedUser)
         li
           a(href=routes.login)
             i.far.fa-user
@@ -17,10 +17,10 @@
           a(href=`/content${routes.upload}`)
             i.far.fa-plus-square
         li 
-          a(href=`${routes.profile(user.id)}`)
+          a(href=`/users${routes.me}`)
             i.fas.fa-user
     .header__menu
       ul 
-        if (user)
+        if (loggedUser)
           li 
             a(href=routes.logout) Logout

@@ -10,7 +10,8 @@ block content
       .profile-card__column 
         .profile-card__title
           h3=user.displayName
-          a(href=routes.editProfile(user.id)) 프로필 편집
+          if(loggedUser.id === user.id)
+            a(href=routes.editProfile(user.id)) 프로필 편집
         .profile-card__values
           .profile-card__value.profile-card__value-content
             h6 게시물
@@ -27,6 +28,6 @@ block content
     .profile-grid
       each item in user.content
         +gridContent({
-          fileUrl: item.fileUrl,
+          fileUrl: `./${item.fileUrl}`,
           id: item.id
         })

@@ -9,6 +9,6 @@ export const uploadProfileImg = multerProfileImg.single("profileUrl");
 
 export const localMiddleware = (req, res, next) => {
   res.locals.routes = routes;
-  res.locals.user = req.user || null;
+  res.locals.loggedUser = req.user || null;
   next();
 };
