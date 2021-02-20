@@ -46,9 +46,37 @@ export const logout = (req, res) => {
   res.redirect(routes.home);
 };
 
+export const getMe = async (req, res) => {
+  const {
+    user: { id },
+  } = req;
+  const user = await User.findById(id).populate("content");
+  res.render("profile", { pageTitle: "My Profile", user });
+};
+
+export const postMe = async (req, res) => {
+  const {
+    user: { id },
+    body: { displayName, description },
+    file,
+  } = req;
+  try {
+    await User.findByIdAndUpdate(id, {
+      displayName,
+      description,
+      profileUrl: file ? file.path : req.user.profileUrl,
+    });
+    //나중에 router를 따로 만들어서 내 프로필만 분리예정
+    res.redirect(`/users${routes.me}`);
+  } catch (error) {
+    console.log(error);
+    res.redirect(routes.home);
+  }
+};
+
 export const getProfile = async (req, res) => {
   const {
-    user: { _id: id },
+    params: { id },
   } = req;
   const user = await User.findById(id).populate("content");
   res.render("profile", { pageTitle: "Edit Profile", user });
@@ -61,26 +89,6 @@ export const getEditProfile = async (req, res) => {
   try {
     const user = await User.findById(id);
     res.render("editProfile", { pageTitle: "Edit Profile", user });
-  } catch (error) {
-    console.log(error);
-    res.redirect(routes.home);
-  }
-};
-
-export const postEditProfile = async (req, res) => {
-  const {
-    params: { _id: id },
-    body: { displayName, description },
-    file,
-  } = req;
-  try {
-    await User.findOneAndUpdate(id, {
-      displayName,
-      description,
-      profileUrl: file ? file.path : req.user.profileUrl,
-    });
-    //나중에 router를 따로 만들어서 내 프로필만 분리예정
-    res.redirect(`/users/${routes.profile(id)}`);
   } catch (error) {
     console.log(error);
     res.redirect(routes.home);

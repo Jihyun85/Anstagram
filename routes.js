@@ -4,6 +4,7 @@ const JOIN = "/join";
 const LOGOUT = "/logout";
 
 const USERS = "/users";
+const ME = "/me";
 const PROFILE = "/:id";
 const EDIT_PROFILE = "/:id/edit";
 const DELETE_PROFILE = "/:id/delete";
@@ -20,6 +21,7 @@ const routes = {
   join: JOIN,
   logout: LOGOUT,
   users: USERS,
+  me: ME,
   profile: (id) => {
     if (id) {
       return `/users/${id}`;

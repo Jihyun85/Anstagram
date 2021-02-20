@@ -4,7 +4,7 @@ block content
   .form-container
     .form-content
       h2 #{pageTitle}
-      form(action=routes.editProfile(user.id), method="post", enctype="multipart/form-data")
+      form(action=`/users${routes.me}`, method="post", enctype="multipart/form-data")
         label(for="profileUrl") 프로필 사진 변경
         input(type="file", name="profileUrl", id="profileUrl")
         input(type="text", name="displayName", placeholder="사용자 이름", required=true, value=user.displayName)
