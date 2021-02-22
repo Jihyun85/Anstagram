@@ -1,0 +1,25 @@
+.content-detail__reply {
+  display: flex;
+  width: 100%;
+}
+
+.content-detail__reply p {
+  display: flex;
+  align-items: center;
+  min-height: 20px;
+  margin: 5px 0;
+  font-size: 14px;
+  word-break: break-all;
+}
+
+.content-detail__anonymous {
+  display: block;
+  min-width: 90px;
+  margin-right: 5px;
+  color: $yellow;
+  font-weight: 600;
+}
+
+.content-detail__reply-text {
+  line-height: 1.3;
+}
