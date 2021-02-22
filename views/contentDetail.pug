@@ -13,18 +13,18 @@ block content
               img(src=`/${content.creator.profileUrl}`)
             a(href="#")
               h5=content.creator.displayName 
-            a(href="#").content-detail__follow 팔로우
           .content-detail__column
             a(href="#")
               i.fas.fa-ellipsis-h
         .content-detail__text 
           .content-detail__description
-            div
-              a(href="#")
-                img(src=`/${content.creator.profileUrl}`)
-            div    
-              a(href="#")=content.creator.displayName
-              p=content.description
+            if content.description
+              div
+                a(href="#")
+                  img(src=`/${content.creator.profileUrl}`)
+              div    
+                a(href="#")=content.creator.displayName
+                p=content.description
           each comment in content.comment 
             +commentBox({
               text: comment.text,

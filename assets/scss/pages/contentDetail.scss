@@ -60,14 +60,19 @@
     height: 40px;
     border-radius: 50%;
   }
+
   i {
     margin-right: 10px;
     text-decoration: none;
     font-weight: 600;
-    color: $blue;
-    h5,
-    i {
-      color: black;
+    color: black;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+    h5 {
+      margin-left: 10px;
+      font-weight: 600;
     }
   }
   a:active {
