@@ -9,13 +9,11 @@ mixin contentCard(content={})
       div
         i.fas.fa-ellipsis-h
     .content-card__img-box
-      img.content-card__content-img(src=`/${content.fileUrl}`) 
+      img.content-card__content-img.jsContentImg(src=`/${content.fileUrl}`) 
     .content-card__info 
       .content-card__icons
-        a(href=routes.heart(content.id))
-          i.far.fa-heart 
-        a(href="#")
-          i.far.fa-comment-alt
+        i.far.fa-heart.heart-btn.jsHeartBtn
+        i.far.fa-comment-alt.jsComment
       .content-card__description 
         a(href=routes.profile(content.creator.id))
           h6=content.creator.displayName 

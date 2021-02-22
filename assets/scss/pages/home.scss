@@ -95,7 +95,9 @@
 
 .content-card__icons {
   margin-bottom: 10px;
-
+  a {
+    color: black;
+  }
   i {
     margin-right: 15px;
     font-size: 24px;
@@ -114,4 +116,12 @@
   p {
     font-size: 12px;
   }
+}
+
+.heart-btn {
+  color: black;
+}
+
+.heart-btn__active {
+  color: red;
 }

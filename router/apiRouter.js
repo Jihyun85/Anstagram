@@ -5,6 +5,4 @@ import routes from "../routes";
 
 const apiRouter = express.Router();
 
-apiRouter.get(routes.heart(), countHeart);
-
 export default apiRouter;

@@ -88,7 +88,7 @@ export const getEditProfile = async (req, res) => {
   } = req;
   try {
     const user = await User.findById(id);
-    res.render("editProfile", { pageTitle: "Edit Profile", user });
+    res.render("editProfile", { pageTitle: "프로필 수정", user });
   } catch (error) {
     console.log(error);
     res.redirect(routes.home);
