@@ -18,6 +18,7 @@ const DELETE_CONTENT = "/:id/delete";
 // api
 const API = "/api";
 const HEART = "/:id/heart";
+const COMMENT = "/:id/comment";
 
 const routes = {
   home: HOME,
@@ -76,6 +77,13 @@ const routes = {
       return `/api/${id}/heart`;
     } else {
       return HEART;
+    }
+  },
+  comment: (id) => {
+    if (id) {
+      return `/api/${id}/comment`;
+    } else {
+      return COMMENT;
     }
   },
 };

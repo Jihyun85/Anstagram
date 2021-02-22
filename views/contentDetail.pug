@@ -1,4 +1,5 @@
 extends ./templates/main.pug
+include ./mixins/commentBox.pug
 
 block content
   .content-detail
@@ -24,6 +25,10 @@ block content
             div    
               a(href="#")=content.creator.displayName
               p=content.description
+          each comment in content.comment 
+            +commentBox({
+              text: comment.text,
+            })
         .content-detail__etc
           div
             i.far.fa-heart.heart-btn.jsHeartBtn 
@@ -31,8 +36,8 @@ block content
           div 
             p.content-detail__like-person dddddddd
         .content-detail__comment
-          form(action="#", method="post")
-            input(type="text", name="comment", placeholder="댓글 달기...", required=true)
+          form.add-commnet.jsAddComment
+            input(type="text", name="comment", placeholder="댓글 달기...", required=true class="jsTextInput")
             input(type="submit")
         
           
