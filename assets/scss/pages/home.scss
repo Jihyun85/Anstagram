@@ -28,6 +28,9 @@
   height: 70px;
   box-sizing: border-box;
   padding: 0 20px;
+  i {
+    cursor: pointer;
+  }
 }
 
 .content-card__creator {
@@ -37,7 +40,6 @@
   a {
     color: black;
     font-weight: 600;
-
     text-decoration: none;
   }
   img {
