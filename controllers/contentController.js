@@ -4,6 +4,11 @@ import Content from "../model/Content";
 export const getHome = async (req, res) => {
   try {
     const content = await Content.find({}).populate("creator");
+    content.sort(function (a, b) {
+      if (a.createAt > b.createAt) {
+        return -1;
+      }
+    });
     res.render("home", { pageTitle: "Home", content });
   } catch (err) {
     console.log(err);
