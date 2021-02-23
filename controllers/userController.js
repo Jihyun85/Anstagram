@@ -57,13 +57,14 @@ export const getMe = async (req, res) => {
 export const postMe = async (req, res) => {
   const {
     user: { id },
-    body: { displayName, description },
+    body: { displayName, name, description },
     file,
   } = req;
   try {
     await User.findByIdAndUpdate(id, {
       displayName,
       description,
+      name,
       profileUrl: file ? file.path : req.user.profileUrl,
     });
     //나중에 router를 따로 만들어서 내 프로필만 분리예정
