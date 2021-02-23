@@ -13,12 +13,9 @@ mixin contentCard(content={})
     .content-card__info 
       .content-card__icons
         i.far.fa-heart.heart-btn.jsHeartBtn
-        i.far.fa-comment-alt.jsComment
+        a(href=routes.contentDetail(content.id))
+          i.far.fa-comment-alt.jsComment
       .content-card__description 
         a(href=routes.profile(content.creator.id))
           h6=content.creator.displayName 
         p=content.description
-    .content-card__comment 
-      form(action="#", method="post")
-        input(type="text", placeholder="댓글 달기...")
-        input(type="submit", value="게시")
