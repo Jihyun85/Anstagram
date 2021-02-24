@@ -1,6 +1,8 @@
 import routes from "../routes";
 import passport from "passport";
 import User from "../model/User";
+import Content from "../model/Content";
+import Comment from "../model/Comment";
 
 export const getLogin = (req, res) => {
   res.render("login", { pageTitle: "로그인" });
@@ -16,7 +18,6 @@ export const getJoin = (req, res) => {
 };
 
 export const postJoin = async (req, res) => {
-  console.log(req.file);
   const {
     body: { email, displayName, name, password1, password2 },
     file: { location },
@@ -102,6 +103,13 @@ export const deleteId = async (req, res) => {
     params: { id },
   } = req;
   try {
+    const user = await User.findById(id)
+      .populate("content")
+      .populate("comment");
+    const contentAry = user.content;
+    contentAry.forEach(async function (content) {
+      await Content.findByIdAndRemove(content.id);
+    });
     await User.findByIdAndRemove(id);
   } catch (error) {
     console.log(error);
