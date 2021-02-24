@@ -11,7 +11,8 @@
     "copyAll": "cp -R src/static build && cp -R src/views build",
     "build": "npm run build:server && npm run build:assets && npm run copyAll",
     "prebuild": "rm -rf build",
-    "start": "node build/init.js"
+    "start": "PRODUCTION=true node build/init.js",
+    "prestart": "npm run build"
   },
   "author": "Jihyun",
   "license": "ISC",
@@ -40,9 +41,7 @@
     "passport-local-mongoose": "^6.1.0",
     "postcss-loader": "^5.0.0",
     "pug": "^3.0.0",
-    "util": "^0.12.3"
-  },
-  "devDependencies": {
+    "util": "^0.12.3",
     "@babel/cli": "^7.12.13",
     "@babel/core": "^7.12.13",
     "@babel/preset-env": "^7.12.13",
@@ -54,5 +53,6 @@
     "webpack": "^5.21.2",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
-  }
+  },
+  "devDependencies": {}
 }

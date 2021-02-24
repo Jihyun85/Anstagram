@@ -28,7 +28,6 @@ export const postUpload = async (req, res) => {
     //유저 정보도 받아와야 함
   } = req;
   const time = new Date();
-  console.log(time);
   const newContent = await Content.create({
     fileUrl: location,
     description,
@@ -47,7 +46,6 @@ export const getContentDetail = async (req, res) => {
   const content = await Content.findById(id)
     .populate("creator")
     .populate("comment");
-  console.log(content.comment.user);
   res.render("contentDetail", { pageTitle: "Content Detail", content });
 };
 
