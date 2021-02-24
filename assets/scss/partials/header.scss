@@ -63,12 +63,48 @@ nav.header__column {
       a {
         color: black;
       }
+      i {
+        cursor: pointer;
+      }
     }
   }
 }
 
+.header__loggeduser {
+  position: relative;
+}
+
 .header__menu {
-  a {
-    text-decoration: none;
+  position: absolute;
+  top: 38px;
+  right: -5px;
+  width: 200px;
+  background-color: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  ul {
+    display: flex;
+    flex-direction: column;
+    a {
+      width: 100%;
+      color: black;
+      text-decoration: none;
+      &:first-child {
+        border-bottom: 1px solid $light-grey;
+      }
+      li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 45px;
+        margin-left: 0;
+        font-size: 16px;
+        font-style: normal;
+      }
+    }
   }
+}
+
+.menu-hidden {
+  display: none;
 }

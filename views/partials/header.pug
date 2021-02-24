@@ -16,11 +16,12 @@
         li
           a(href=`/content${routes.upload}`)
             i.far.fa-plus-square
-        li 
-          a(href=`/users${routes.me}`)
-            i.fas.fa-user
-    .header__menu
-      ul 
-        if (loggedUser)
-          li 
-            a(href=routes.logout) Logout
+        li.header__loggeduser.jsUserIcon
+          i.fas.fa-user
+          .header__menu.menu-hidden.jsHeaderMenu
+            ul 
+              if (loggedUser)
+                a(href=`/users${routes.me}`)
+                  li 내 프로필
+                a(href=routes.logout) 
+                  li 로그아웃
