@@ -10,12 +10,15 @@ dotenv.config();
 mongoose.Promise = global.Promise;
 
 mongoose
-  .connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-  })
+  .connect(
+    process.env.PRODUCTION ? process.env.MONGO_URL_PROD : process.env.MONGO_URL,
+    {
+      useNewUrlParser: true,
+      useFindAndModify: false,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+    }
+  )
   .then(() => console.log(`🚀Successfully connected to mongodb!`))
   .catch((e) => console.error(e));
 
