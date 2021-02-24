@@ -56,7 +56,20 @@ export const getMe = async (req, res) => {
   res.render("profile", { pageTitle: "My Profile", user });
 };
 
-export const postMe = async (req, res) => {
+export const getEditMe = async (req, res) => {
+  const {
+    user: { id },
+  } = req;
+  try {
+    const user = await User.findById(id);
+    res.render("editProfile", { pageTitle: "프로필 수정", user });
+  } catch (error) {
+    console.log(error);
+    res.redirect(routes.home);
+  }
+};
+
+export const postEditMe = async (req, res) => {
   const {
     user: { id },
     body: { displayName, name, description },
@@ -83,19 +96,6 @@ export const getProfile = async (req, res) => {
   } = req;
   const user = await User.findById(id).populate("content");
   res.render("profile", { pageTitle: "Edit Profile", user });
-};
-
-export const getEditProfile = async (req, res) => {
-  const {
-    params: { id },
-  } = req;
-  try {
-    const user = await User.findById(id);
-    res.render("editProfile", { pageTitle: "프로필 수정", user });
-  } catch (error) {
-    console.log(error);
-    res.redirect(routes.home);
-  }
 };
 
 export const deleteId = async (req, res) => {

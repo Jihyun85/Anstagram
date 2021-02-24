@@ -5,8 +5,8 @@ const LOGOUT = "/logout";
 
 const USERS = "/users";
 const ME = "/me";
+const EDIT_ME = "/me/edit";
 const PROFILE = "/:id";
-const EDIT_PROFILE = "/:id/edit";
 const DELETE_PROFILE = "/:id/delete";
 
 const CONTENT = "/content";
@@ -34,13 +34,7 @@ const routes = {
       return PROFILE;
     }
   },
-  editProfile: (id) => {
-    if (id) {
-      return `/users/${id}/edit`;
-    } else {
-      return EDIT_PROFILE;
-    }
-  },
+  editMe: EDIT_ME,
   deleteId: (id) => {
     if (id) {
       return `/users/${id}/delete`;
