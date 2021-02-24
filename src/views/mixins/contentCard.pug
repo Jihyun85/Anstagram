@@ -30,6 +30,6 @@ mixin contentCard(content={})
             li.modal__impact 게시물 삭제
           li.modal__close.jsModalClose 취소
         else 
-          a(href=routes.deleteContent(content.id))
+          a(href=routes.contentDetail(content.id))
             li 게시물 이동
           li.modal__close.jsModalClose 취소
