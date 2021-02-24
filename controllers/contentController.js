@@ -23,14 +23,17 @@ export const getUpload = (req, res) => {
 export const postUpload = async (req, res) => {
   const {
     body: { description },
-    file: { path },
+    file: { location },
     user: { _id: id },
     //유저 정보도 받아와야 함
   } = req;
+  const time = new Date();
+  console.log(time);
   const newContent = await Content.create({
-    fileUrl: path,
+    fileUrl: location,
     description,
     creator: id,
+    createAt: time,
   });
   req.user.content.unshift(newContent.id);
   req.user.save();

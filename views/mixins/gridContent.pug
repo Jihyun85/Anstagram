@@ -1,4 +1,4 @@
 mixin gridContent(content={})
   .grid__content
     a(href=routes.contentDetail(content.id))
-      img(src=`/${content.fileUrl}`)
+      img(src=content.fileUrl)

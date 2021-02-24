@@ -6,7 +6,7 @@ block content
   .profile
     .profile-card 
       .profile-card__column
-        img.profile-card__image(src=`/${user.profileUrl}`)
+        img.profile-card__image(src=user.profileUrl)
       .profile-card__column 
         .profile-card__title
           h3=user.displayName
@@ -28,6 +28,6 @@ block content
     .profile-grid
       each item in user.content
         +gridContent({
-          fileUrl: `./${item.fileUrl}`,
+          fileUrl: item.fileUrl,
           id: item.id
         })

@@ -16,9 +16,10 @@ export const getJoin = (req, res) => {
 };
 
 export const postJoin = async (req, res) => {
+  console.log(req.file);
   const {
     body: { email, displayName, name, password1, password2 },
-    file: { path },
+    file: { location },
   } = req;
   if (password1 !== password2) {
     //수정 필요(join 페이지를 렌더하지 않고 안내 문구가 나오도록)
@@ -30,7 +31,7 @@ export const postJoin = async (req, res) => {
         email,
         displayName,
         name,
-        profileUrl: path,
+        profileUrl: location,
       });
       await User.register(user, password1);
       res.redirect(routes.login);
@@ -65,7 +66,7 @@ export const postMe = async (req, res) => {
       displayName,
       description,
       name,
-      profileUrl: file ? file.path : req.user.profileUrl,
+      profileUrl: file ? file.location : req.user.profileUrl,
     });
     //나중에 router를 따로 만들어서 내 프로필만 분리예정
     res.redirect(`/users${routes.me}`);
