@@ -14,8 +14,8 @@ block content
             a(href="#")
               h5=content.creator.displayName 
           .content-detail__column
-            a(href="#")
-              i.fas.fa-ellipsis-h
+            if loggedUser && loggedUser.id === content.creator.id
+              i.fas.fa-ellipsis-h.jsContentDetailBtn
         .content-detail__text 
           .content-detail__description
             if content.description
@@ -39,15 +39,11 @@ block content
           form.add-commnet.jsAddComment
             input(type="text", name="comment", placeholder="댓글 달기...", required=true class="jsTextInput")
             input(type="submit")
-        
-          
-
-
-
-
-      .menu 
-        ul 
-            a(href=routes.editContent(content.id))
-              li 게시물 수정
-            a(href=routes.deleteContent(content.id))
-              li 게시물 삭제
+    .modal.content-card__modal.modal-hidden.jsModalBox
+      ul.modal__list 
+        if loggedUser && loggedUser.id === content.creator.id
+          a(href=routes.editContent(content.id))
+            li 게시물 수정
+          a(href="#")
+            li.modal__impact 게시물 삭제
+          li.modal__close.jsModalClose 취소
