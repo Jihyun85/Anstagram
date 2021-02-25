@@ -1,0 +1,8 @@
+mixin recommendCard(user={})
+  .home__recommend-card
+    .home__recommend-column
+      a(href=routes.profile(user.id))
+        img(src=user.profileUrl)
+      a(href=routes.profile(user.id))
+        h6=user.displayName
+      .home__recommend-column 

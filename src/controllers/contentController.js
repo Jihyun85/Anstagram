@@ -1,5 +1,6 @@
 import routes from "../routes";
 import Content from "../model/Content";
+import User from "../model/User";
 
 export const getHome = async (req, res) => {
   try {
@@ -9,7 +10,21 @@ export const getHome = async (req, res) => {
         return -1;
       }
     });
-    res.render("home", { pageTitle: "Home", content });
+    const userAry = await User.find({});
+    let randomNum = [];
+    let randomUser = [];
+    let i = 0;
+    if (userAry.length >= 4) {
+      while (i < 4) {
+        let n = Math.floor(Math.random() * userAry.length);
+        if (randomNum.indexOf(n) === -1) {
+          randomNum.push(n);
+          randomUser.push(userAry[n]);
+          i++;
+        }
+      }
+    }
+    res.render("home", { pageTitle: "Home", content, randomUser });
   } catch (err) {
     console.log(err);
     res.render("home", { pageTitle: "Home", content: [] });
