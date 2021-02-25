@@ -5,7 +5,7 @@ block content
     .form-content
       h2 #{pageTitle}
       form(action=`/content/upload`, method="post", enctype="multipart/form-data")
-        label(for="imageFile") 이미지 첨부하기
-        input(type="file", id="imageFile", name="imageFile", required=true, accept="image/*")
+        label(for="imageFile" class="jsFileLabel") 이미지 선택하기
+        input(type="file", id="imageFile", name="imageFile", required=true, accept="image/*", class="jsFileInput")
         textarea(name="description" placeholder="이미지 설명")
         input(type="submit", value="업로드")
