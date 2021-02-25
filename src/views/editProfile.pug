@@ -6,7 +6,7 @@ block content
       h2 #{pageTitle}
       form(action=`/users${routes.editMe}`, method="post", enctype="multipart/form-data", class="jsTextareaForm")
         label(for="profileUrl") 프로필 사진 변경
-        input(type="file", name="profileUrl", id="profileUrl")
+        input(type="file", name="profileUrl", id="profileUrl", accept="image/*")
         input(type="text", name="displayName", placeholder="사용자 이름", required=true, value=user.displayName)
         input(type="text", name="name", placeholder="이름" value=user.name)
         textarea(placeholder="소개글", name="description")=user.description
