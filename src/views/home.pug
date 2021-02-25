@@ -20,9 +20,11 @@ block content
       nav.home__nav 
         .home__my-profile 
           .home__my-img
-            img(src=loggedUser.profileUrl)
+            a(href=`/users${routes.me}`)
+              img(src=loggedUser.profileUrl)
           .home__my-info
-            h5=loggedUser.displayName 
+            a(href=`/users${routes.me}`)
+              h5=loggedUser.displayName 
             span=loggedUser.name 
         h4 회원님을 위한 추천
         .home__recommend
