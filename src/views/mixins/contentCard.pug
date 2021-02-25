@@ -18,7 +18,7 @@ mixin contentCard(content={})
       .content-card__description 
         a(href=routes.profile(content.creator.id))
           h6=content.creator.displayName 
-        p=content.description
+        p(class="jsTextResult")=content.description
     .modal.content-card__modal.modal-hidden.jsModalBox
       ul.modal__list 
         if loggedUser && loggedUser.id === content.creator.id

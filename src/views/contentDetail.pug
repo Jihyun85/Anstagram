@@ -24,7 +24,7 @@ block content
                   img.profileImg(src=content.creator.profileUrl)
               div    
                 a(href=routes.profile(content.creator.id))=content.creator.displayName
-                p=content.description
+                p(class="jsTextResult")=content.description
           each comment in content.comment 
             +commentBox({
               text: comment.text,

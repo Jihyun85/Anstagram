@@ -24,7 +24,7 @@ block content
             span=user.follower.length
         .profile-card__description 
           h5.profile-card__name=user.name 
-          p=user.description
+          p(class="jsTextResult")=user.description
     .profile-grid
       each item in user.content
         +gridContent({
