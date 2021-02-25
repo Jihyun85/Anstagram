@@ -28,15 +28,22 @@ export const postUpload = async (req, res) => {
     //유저 정보도 받아와야 함
   } = req;
   const time = new Date();
-  const newContent = await Content.create({
-    fileUrl: location,
-    description,
-    creator: id,
-    createAt: time,
-  });
-  req.user.content.unshift(newContent.id);
-  req.user.save();
-  res.redirect(routes.contentDetail(newContent.id));
+  try {
+    const newContent = await Content.create({
+      fileUrl: location,
+      description,
+      creator: id,
+      createAt: time,
+    });
+    req.user.content.unshift(newContent.id);
+    req.user.save();
+    req.flash("success", "업로드에 성공했습니다.");
+    res.redirect(routes.contentDetail(newContent.id));
+  } catch (error) {
+    console.log(error);
+    req.flash("error", "업로드에 실패했습니다.");
+    res.redirect(routes.home);
+  }
 };
 
 export const getContentDetail = async (req, res) => {

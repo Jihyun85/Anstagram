@@ -2,7 +2,6 @@ import routes from "../routes";
 import passport from "passport";
 import User from "../model/User";
 import Content from "../model/Content";
-import Comment from "../model/Comment";
 
 export const getLogin = (req, res) => {
   res.render("login", { pageTitle: "로그인" });
@@ -11,6 +10,8 @@ export const getLogin = (req, res) => {
 export const postLogin = passport.authenticate("local", {
   successRedirect: routes.home,
   failureRedirect: routes.login,
+  successFlash: "로그인에 성공했습니다.",
+  failureFlash: "로그인에 실패했습니다. 이메일이나 비밀번호를 확인해주세요.",
 });
 
 export const getJoin = (req, res) => {
@@ -23,7 +24,7 @@ export const postJoin = async (req, res) => {
     file: { location },
   } = req;
   if (password1 !== password2) {
-    //수정 필요(join 페이지를 렌더하지 않고 안내 문구가 나오도록)
+    req.flash("error", "비밀번호 확인이 비밀번호와 다릅니다.");
     res.status(400);
     res.render("join", { pageTitle: "회원가입" });
   } else {
@@ -35,6 +36,7 @@ export const postJoin = async (req, res) => {
         profileUrl: location,
       });
       await User.register(user, password1);
+      req.flash("success", "회원가입에 성공했습니다.");
       res.redirect(routes.login);
     } catch (error) {
       console.log(error);
@@ -45,6 +47,7 @@ export const postJoin = async (req, res) => {
 
 export const logout = (req, res) => {
   req.logout();
+  req.flash("success", "로그아웃에 성공했습니다.");
   res.redirect(routes.home);
 };
 

@@ -10,6 +10,7 @@ import session from "express-session";
 import mongoose from "mongoose";
 import MongoStore from "connect-mongo";
 import dotenv from "dotenv";
+import flash from "express-flash";
 
 import routes from "./routes";
 import globalRouter from "./router/globalRouter";
@@ -56,6 +57,8 @@ app.set("views", path.join(__dirname, "views"));
 app.use("/static", express.static(path.join(__dirname, "static")));
 
 app.use(localMiddleware);
+
+app.use(flash());
 
 app.use(routes.home, globalRouter);
 app.use(routes.users, userRouter);

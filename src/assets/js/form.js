@@ -7,7 +7,6 @@ const chooseFile = (e) => {
   if (file === 1) {
     fileLabel.innerText = "이미지 선택 완료";
   } else if (file === 0) {
-    fileLabel.style.backgroundColor = "";
     fileLabel.innerText = "이미지 선택하기";
   }
 };
