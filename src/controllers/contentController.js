@@ -32,7 +32,7 @@ export const getHome = async (req, res) => {
 };
 
 export const getUpload = (req, res) => {
-  res.render("upload", { pageTitle: "Upload" });
+  res.render("upload", { pageTitle: "Upload", formTitle: "콘텐츠 업로드" });
 };
 
 export const postUpload = async (req, res) => {
@@ -77,7 +77,11 @@ export const getEditContent = async (req, res) => {
   } = req;
   try {
     const content = await Content.findById(id);
-    res.render("editContent", { pageTitle: "Edit Content", content });
+    res.render("editContent", {
+      pageTitle: "Edit Content",
+      formTitle: "콘텐츠 수정",
+      content,
+    });
   } catch (error) {
     res.redirect(routes.profile(req.user.id));
   }

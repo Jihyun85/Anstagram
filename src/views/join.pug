@@ -3,7 +3,7 @@ extends ./templates/main.pug
 block content
   .form-container
     .form-content
-      h2 #{pageTitle}
+      h2 #{formTitle}
       form(action=routes.join, method="post", enctype="multipart/form-data")
         label(for="profileUrl", class="jsFileLabel") 프로필 사진 선택
         input(type="file", name="profileUrl", id="profileUrl", accept="image/*", class="jsProfileInput")

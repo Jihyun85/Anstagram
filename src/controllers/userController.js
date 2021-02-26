@@ -4,7 +4,7 @@ import User from "../model/User";
 import Content from "../model/Content";
 
 export const getLogin = (req, res) => {
-  res.render("login", { pageTitle: "Login" });
+  res.render("login", { pageTitle: "Login", formTitle: "로그인" });
 };
 
 export const postLogin = passport.authenticate("local", {
@@ -15,7 +15,7 @@ export const postLogin = passport.authenticate("local", {
 });
 
 export const getJoin = (req, res) => {
-  res.render("join", { pageTitle: "Join" });
+  res.render("join", { pageTitle: "Join", formTitle: "회원가입" });
 };
 
 export const postJoin = async (req, res) => {
@@ -71,7 +71,11 @@ export const getEditMe = async (req, res) => {
   } = req;
   try {
     const user = await User.findById(id);
-    res.render("editProfile", { pageTitle: "Edit Profile", user });
+    res.render("editProfile", {
+      pageTitle: "Edit Profile",
+      formTitle: "프로필 수정",
+      user,
+    });
   } catch (error) {
     console.log(error);
     res.redirect(routes.home);

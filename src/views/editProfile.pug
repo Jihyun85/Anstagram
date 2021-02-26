@@ -3,7 +3,7 @@ extends ./templates/main.pug
 block content
   .form-container
     .form-content
-      h2 #{pageTitle}
+      h2 #{formTitle}
       form(action=`/users${routes.editMe}`, method="post", enctype="multipart/form-data", class="jsTextareaForm")
         span=user.email
         label(for="profileUrl", class="jsFileLabel") 프로필 사진 선택

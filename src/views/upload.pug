@@ -3,7 +3,7 @@ extends ./templates/main.pug
 block content
   .form-container
     .form-content
-      h2 #{pageTitle}
+      h2 #{formTitle}
       form(action=`/content/upload`, method="post", enctype="multipart/form-data")
         label(for="imageFile" class="jsFileLabel") 이미지 선택하기
         input(type="file", id="imageFile", name="imageFile", required=true, accept="image/*", class="jsFileInput")
