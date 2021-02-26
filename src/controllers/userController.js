@@ -21,7 +21,7 @@ export const getJoin = (req, res) => {
 export const postJoin = async (req, res) => {
   const {
     body: { email, displayName, name, password1, password2 },
-    file: { location },
+    file,
   } = req;
   const searchUser = await User.find({ email });
   if (searchUser.length !== 0) {
@@ -37,7 +37,9 @@ export const postJoin = async (req, res) => {
         email,
         displayName,
         name,
-        profileUrl: location,
+        profileUrl: file
+          ? file.location
+          : "https://anstagram.s3.ap-northeast-2.amazonaws.com/profile/profile-default.jpg",
       });
       await User.register(user, password1);
       req.flash("success", "회원가입에 성공했습니다.");

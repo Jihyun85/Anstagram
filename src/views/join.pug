@@ -6,7 +6,7 @@ block content
       h2 #{pageTitle}
       form(action=routes.join, method="post", enctype="multipart/form-data")
         label(for="profileUrl", class="jsFileLabel") 프로필 사진 선택
-        input(type="file", name="profileUrl", id="profileUrl", accept="image/*", class="jsProfileInput", required=true)
+        input(type="file", name="profileUrl", id="profileUrl", accept="image/*", class="jsProfileInput")
         input(type="email", name="email", placeholder="이메일 계정", required=true, )
         input(type="text", name="displayName", placeholder="사용자 이름", required=true)
         input(type="text", name="name", placeholder="이름", required=true)
