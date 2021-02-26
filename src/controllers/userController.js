@@ -4,7 +4,7 @@ import User from "../model/User";
 import Content from "../model/Content";
 
 export const getLogin = (req, res) => {
-  res.render("login", { pageTitle: "로그인" });
+  res.render("login", { pageTitle: "Login" });
 };
 
 export const postLogin = passport.authenticate("local", {
@@ -15,7 +15,7 @@ export const postLogin = passport.authenticate("local", {
 });
 
 export const getJoin = (req, res) => {
-  res.render("join", { pageTitle: "회원가입" });
+  res.render("join", { pageTitle: "Join" });
 };
 
 export const postJoin = async (req, res) => {
@@ -26,11 +26,11 @@ export const postJoin = async (req, res) => {
   const searchUser = await User.find({ email });
   if (searchUser.length !== 0) {
     req.flash("error", "이미 가입된 이메일입니다.");
-    res.render("join", { pageTitle: "회원가입" });
+    res.render("join", { pageTitle: "Join" });
   } else if (password1 !== password2) {
     req.flash("error", "비밀번호 확인이 비밀번호와 다릅니다.");
     res.status(400);
-    res.render("join", { pageTitle: "회원가입" });
+    res.render("join", { pageTitle: "Join" });
   } else {
     try {
       const user = await new User({
@@ -71,7 +71,7 @@ export const getEditMe = async (req, res) => {
   } = req;
   try {
     const user = await User.findById(id);
-    res.render("editProfile", { pageTitle: "프로필 수정", user });
+    res.render("editProfile", { pageTitle: "Edit Profile", user });
   } catch (error) {
     console.log(error);
     res.redirect(routes.home);
@@ -104,7 +104,7 @@ export const getProfile = async (req, res) => {
     params: { id },
   } = req;
   const user = await User.findById(id).populate("content");
-  res.render("profile", { pageTitle: "Edit Profile", user });
+  res.render("profile", { pageTitle: "Profile", user });
 };
 
 export const deleteId = async (req, res) => {
