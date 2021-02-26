@@ -23,7 +23,11 @@ export const postJoin = async (req, res) => {
     body: { email, displayName, name, password1, password2 },
     file: { location },
   } = req;
-  if (password1 !== password2) {
+  const searchUser = await User.find({ email });
+  if (searchUser.length !== 0) {
+    req.flash("email", "이미 가입된 이메일입니다.");
+    res.render("join", { pageTitle: "회원가입" });
+  } else if (password1 !== password2) {
     req.flash("error", "비밀번호 확인이 비밀번호와 다릅니다.");
     res.status(400);
     res.render("join", { pageTitle: "회원가입" });
